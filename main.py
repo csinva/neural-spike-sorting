@@ -8,11 +8,13 @@ from keras.utils import plot_model
 from math import floor, ceil
 
 
-def load_data():
+def load_data_train():
     dataset = 'train/1'
-    calcium_train = pd.read_csv(dataset + '.train.calcium.csv')['0']  # todo: concat these
-    spikes_train = pd.read_csv(dataset + '.train.spikes.csv')['0']
-    return calcium_train, spikes_train
+    x_train = pd.read_csv(dataset + '.train.calcium.csv')['0']  # todo: concat these
+    y_train = pd.read_csv(dataset + '.train.spikes.csv')['0']
+    x_test = pd.read_csv(dataset + '.train.calcium.csv')['1']  # todo: concat these
+    y_test = pd.read_csv(dataset + '.train.spikes.csv')['1']
+    return x_train, y_train, x_test, y_test
 
 def plot(calcium, spikes, xlim):
     t = np.arange(len(calcium)) / 100.0
@@ -26,10 +28,10 @@ def plot(calcium, spikes, xlim):
     plt.show()
 
 
-x, y = load_data()
-N = len(x)
-x = x.values.reshape((1, N, 1))
-y = y.values.reshape((1, N, 1))
+x_train, y_train, x_test, y_test = load_data_train()
+N = len(x_train)
+x_train = x_train.values.reshape((1, N, 1))
+y_train = y_train.values.reshape((1, N, 1))
 # print(max(y))
 # plot(x, y, [0, 100])
 # print(max(y))
@@ -56,9 +58,9 @@ model.compile(loss='mse', optimizer='adam', metrics=['accuracy'])
 
 # fit the model
 print('fitting...')
-model.fit(x, y, epochs=epochs)
+model.fit(x_train, y_train, epochs=epochs)
 
 # evaluate the model
 print('evaluating...')
-scores = model.evaluate(x, y)
-print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1] * 100))
+# scores = model.evaluate(x_test, y_test)
+# print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1] * 100))
