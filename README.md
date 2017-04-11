@@ -1,7 +1,15 @@
 # spikenn
-- problem - find spikes in calcium imaging data
 - todo
-	- match up trains with tests
+	- use class_weight appropriately
+	- print correlation as training
+	- learn dataset 7 (seems easiest)
+	- cluster based on spike shapes
+		- testing 1 -> 10/6
+		- testing 2 ->
+		- testing 3 ->
+		- testing 4 ->
+		- testing 5 ->
+- methods
 	- longer training
 	- use correlation as loss function?
 	- rnn?
@@ -9,6 +17,7 @@
 
 # spikefinder-datasets
 - data in csv format
+- different neurons within the same dataset look slightly different
 - ten training datasets numbered `1-10`
 	- For each one there is a `calcium` file with calcium flouresence signals, and a `spikes` file with spike rates, both sampled at a common rate of `100 Hz`. 
 	- The columns of each table are neurons, and the rows are time points. 
