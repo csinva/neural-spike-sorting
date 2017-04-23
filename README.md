@@ -1,5 +1,10 @@
 # spikenn
+- best
+	- mse, sgd, kernel_sizes = 5,5,5, epochs = 20/30
 - todo
+	- *different loss functions*
+	- pooling layers
+	- add in other algorithms as input
 	- use class_weight appropriately
 	- print correlation as training
 	- learn dataset 7 (seems easiest)
