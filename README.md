@@ -3,6 +3,7 @@
 	- mse, sgd, kernel_sizes = 5,5,5, epochs = 20/30
 - todo
 	- *different loss functions*
+	- add in stm code from: https://github.com/lucastheis/cmt
 	- pooling layers
 	- add in other algorithms as input
 	- use class_weight appropriately
